@@ -105,8 +105,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       return;
     }
 
-
-
     const imageSrc = clickedElement.dataset.source;
     const imageAlt = clickedElement.alt;
 
