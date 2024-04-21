@@ -65,6 +65,7 @@ const images = [
 ];
 
 const galleryImageClass = 'gallery-image';
+let lightboxInstance;
 
 const galleryItemHtml = (previewSrc, originalSrc, alt) => {
   return `<li class="gallery-item">
@@ -91,15 +92,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     return html;
   }, '');
 
-  const lightboxInstance = basicLightbox.create(`
+  galleryE.addEventListener('click', (event) => {
+    event.preventDefault();
+    const clickedElement = event.target;
+
+    if (! lightboxInstance) {
+      lightboxInstance = basicLightbox.create(`
         <div class="modal modal-gallery">
             <div class="modal-gallery-wrap"></div>
         </div>
     `);
-
-  galleryE.addEventListener('click', (event) => {
-    event.preventDefault();
-    const clickedElement = event.target;
+    }
 
     if (!clickedElement.classList.contains(galleryImageClass)) {
       return;
