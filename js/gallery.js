@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     event.preventDefault();
     const clickedElement = event.target;
 
-    if (! lightboxInstance) {
+    if (!lightboxInstance) {
       lightboxInstance = basicLightbox.create(`
         <div class="modal modal-gallery">
             <div class="modal-gallery-wrap"></div>
